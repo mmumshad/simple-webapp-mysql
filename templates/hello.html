@@ -1,0 +1,31 @@
+<!doctype html>
+<title>Hello from Flask</title>
+<body style="background: {{ color }};"></body>
+<div style="color: #e4e4e4;
+    text-align:  center;
+    height: 90px;
+    vertical-align:  middle;">
+
+  {% if db_connect_result %}
+    <img src="{{ url_for('static', filename='img/success.jpg') }}">
+    <h3> Successfully connected to the MySQL database.</h3>
+  {% else %}
+    <img src="{{ url_for('static', filename='img/failed.png') }}">
+    <h3> Failed connecting to the MySQL database. </h3>
+  {% endif %}
+
+  {% if debug %}
+    <h2> {{ debug }} </h2>
+  {% endif %}
+
+  {% if name %}
+    <p> From {{ name }}!</p>
+  {% endif %}
+
+  {% if contents %}
+  <textarea rows="10" cols="50">
+    {{ contents }}
+  </textarea>
+  {% endif %}
+
+</div>
